@@ -1,0 +1,27 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings of section-CTA.
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="section_cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 section-heading">
+                <h2>{{section.settings.cta_heading}}</h2>
+                {%- if section.settings.btn_url != blank -%}
+                  <a href="{{ section.settings.btn_url }}" class="btn btn-theme">{{ section.settings.btn_txt }}</a>
+                {%- endif -%}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+  .section_cta{
+    padding: 75px 0px;
+  }
+</style>

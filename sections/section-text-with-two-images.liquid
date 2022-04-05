@@ -1,0 +1,48 @@
+{% render 'section-text-with-two-images' %}
+{% schema %}
+  {
+    "name": "Text with Two Images",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Section Heading",
+						"default": "Section Heading"
+					},
+					{
+						"type": "textarea",
+                        "id": "section_text_heading",
+                        "label": "Heading",
+						"default": "Heading"
+					},
+					{
+						"type": "textarea",
+                        "id": "section_text_descp",
+                        "label": "Description",
+						"default": "Heading"
+					},
+					{
+						"type": "image_picker",
+                        "id": "section_image_1",
+                        "label": "Select Image"
+					},
+					{
+						"type": "image_picker",
+                        "id": "section_image_2",
+                        "label": "Select Image"
+					}
+				],
+	"presets":[
+					{
+						"category":"image",
+						"name" : "Text with Two Images"
+					}
+				]			
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

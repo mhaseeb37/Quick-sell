@@ -1,0 +1,42 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings of section-image-with-text.
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="imgTxt" id="{%- if section.settings.image_alignment != 'left' -%} left-text {%- endif -%}">
+  <div class="container">
+    <div class="row" {%- if section.settings.image_alignment == 'right' -%} style="flex-direction:row-reverse;" {%- endif -%}>
+      <div class="col-md-6">
+        <div class="{%- if section.settings.image_radius == 'TL' -%} top-left {%- elsif section.settings.image_radius == 'TR' -%} top-right {%- elsif section.settings.image_radius == 'BL' -%} bottom-left {%- elsif section.settings.image_radius == 'BR' -%} bottom-right {%- elsif block.settings.radius_img == 'AS' -%} all-side {%- elsif block.settings.radius_img == 'NR' -%} no-radius {%- endif -%}">
+          <img src="{{ section.settings.section_image | img_url: '1296x' }}" data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" alt="{{ var_image_alt }}">
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-side">
+          {%- if section.settings.section_heading != blank -%}
+          <h2>{{ section.settings.section_heading }}</h2>
+          {%- endif -%}
+          {%- if section.settings.section_sub_heading != blank -%}
+          <h3>{{ section.settings.section_sub_heading }}</h3>
+          {%- endif -%}
+          <p>{{ section.settings.section_paragraph }}</p>
+          {%- if section.settings.button_link != blank -%}
+          <a href="{{ section.settings.button_link }}" class="btn btn-theme">{{ section.settings.button_text }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .imgTxt .text-side .btn:hover{
+    border-color:#DC9E36;
+    color:#DC9E36 !important;
+  }
+</style>
+

@@ -1,0 +1,42 @@
+{% render 'section-rewards-cta'%}
+{% schema %}
+  {
+    "name": "Rewards CTA",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Section Heading",
+						"default": "Heading"
+					},
+                    {
+                        "type": "textarea",
+                        "id" : "reward_descp",
+                        "label" : "Description",
+                        "default" : "Description"
+                    },
+					{
+						"type" : "url",
+						"id" : "reward_btn_url",
+						"label" : "Button Url"
+					},
+					{
+						"type" : "text",
+						"id" : "reward_btn_text",
+						"label" : "Button text"
+					}
+				],
+	"presets" : [
+					{
+						"category" : "image",
+						"name" : "Reward CTA"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

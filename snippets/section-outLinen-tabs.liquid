@@ -1,0 +1,136 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings section-outLinen-tabs
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="section-tabs linen-tabs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 tab-box">
+        <div class="tabs-heading section-heading">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+        <div class="horizontal-images light" id="content-5">
+        	<ul class="nav nav-tabs" id="myTab" role="tablist">
+          
+          {% for block in section.blocks%}
+          <li class="nav-item" role="presentation">
+            <button class="nav-link " id="tab-{% increment id %}" data-bs-toggle="tab" data-bs-target="#mytab{% increment target %}" type="button" role="tab" aria-controls="mytab{% increment taget %}" aria-selected="true">{{ block.settings.tab_heading }}</button>
+          </li>
+          {% endfor %}
+        </ul>
+        </div>
+        <div class="tab-content" id="myTabContent">
+          {% for block in section.blocks%}
+          <div class="tab-pane fade" id="mytab{% increment text %}" role="tabpanel" aria-labelledby="tab-{% increment newid %}">
+            <img src="{{ block.settings.tab_image | img_url: '1024x' }}">
+            <h3>{{ block.settings.tab_sub_heading }}</h3>
+            <p class="tab-descp">{{ block.settings.tab_description}}</p>
+            {%- if block.settings.button_link != blank -%}
+           	 <a href="{{ block.settings.button_link }}" class="btn btn-theme">{{ block.settings.button_text }}<i class="icon" aria-hidden="true"><svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.7071 8.20711C26.0976 7.81658 26.0976 7.18342 25.7071 6.79289L19.3431 0.428932C18.9526 0.0384078 18.3195 0.0384078 17.9289 0.428932C17.5384 0.819457 17.5384 1.45262 17.9289 1.84315L23.5858 7.5L17.9289 13.1569C17.5384 13.5474 17.5384 14.1805 17.9289 14.5711C18.3195 14.9616 18.9526 14.9616 19.3431 14.5711L25.7071 8.20711ZM0 8.5H25V6.5H0V8.5Z" fill="white"/>
+&nbsp;</svg>
+</i></a>
+            {%- endif -%}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .section-tabs{
+    padding-bottom: 75px;
+    padding-top: 75px;
+  }
+  .tabs-heading h2{text-align:center;}
+  .tab-box {
+    background: #fcfaf7;
+    padding: 100px 60px;
+    border-radius: 60px;
+}
+  .tab-box .nav{
+    justify-content:center;
+    border-bottom: 3px solid #DC9E36;
+    margin-bottom: 50px;
+  }
+  .tab-box .nav-tabs .nav-link{
+    border:none;
+  }
+  .tab-box .nav-tabs .nav-link.active {
+    background:transparent;
+  }
+  .tab-box .nav-tabs .nav-link.active img {
+    opacity: 1;
+  }
+  .tab-box .nav-item img{
+    width:200px;
+    opacity: 0.5;
+  }
+  .tab-descp{
+    font-family: adobe-garamond-pro;
+    font-size: 30px;
+    line-height: 36px;
+  }
+  
+  @media(max-width: 767px) {
+    .tab-box .nav-item img {
+      width: 105px;
+    }
+    .mCSB_horizontal.mCSB_inside>.mCSB_container {
+      margin-bottom: 0;
+    }
+    #mCSB_1_dragger_horizontal {
+      display: none !important;
+    }
+    .section-tabs {
+      background: #fcfaf7;
+    padding-top: 50px !important;
+    padding-bottom: 30px !important;
+    }
+    .feat-bg {
+      padding: 30px 40px 50px;
+      text-align: center;
+    }
+    .text-heading h2 {
+      font-size: 42px !important;
+      line-height: 50px !important;
+    }
+    .rating {
+      margin-top: 50px;
+    }
+    .tab-descp {
+      font-size: 20px;
+      line-height: 28px;
+    }
+    
+  }
+  
+</style>
+	<script>
+		(function($){
+			$(window).on("load",function(){
+				
+				$("#content-5").mCustomScrollbar({
+					axis:"x",
+					theme:"dark-thin",
+					autoExpandScrollbar:true,
+					advanced:{autoExpandHorizontalScroll:true}
+				});
+				
+				
+			});
+		})(jQuery);
+	</script>
+<script>
+  $(document).ready(function(){
+  $("#myTabContent div.tab-pane:first").addClass("show active");
+    $("#myTab li:first button").addClass("active");
+
+});
+</script>

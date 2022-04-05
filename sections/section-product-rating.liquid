@@ -1,0 +1,58 @@
+{% render 'section-product-rating'%}
+{% schema %}
+  {
+    "name": "Product with star rating",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Section Name",
+						"default": "Heading"
+					},
+                    {
+                        "type": "image_picker",
+                        "id": "rating_image",
+                        "label": "Rating Image"
+                    },
+                    {
+                        "type": "textarea",
+                        "id" : "testimonial_descp",
+                        "label" : "Testimonial Description",
+                        "default" : "Testimonial Description"
+                    },
+                    {
+                        "type": "textarea",
+                        "id" : "author_name",
+                        "label" : "Author Name",
+                        "default": "Author Name"
+                    },
+					{
+                        "type": "product",
+                        "id": "feat_product",
+                        "label": "Select Prodcut"
+                    },
+					{
+						"type" : "url",
+						"id" : "build_btn_url",
+						"label" : "Button Url"
+					},
+					{
+						"type" : "text",
+						"id" : "build_btn_text",
+						"label" : "Button text"
+					}
+				],
+	"presets" : [
+					{
+						"category" : "image",
+						"name" : "Testimonial Rating Product"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

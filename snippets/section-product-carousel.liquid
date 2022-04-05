@@ -1,0 +1,183 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings section-product-carousel
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+{%- assign collection = collections[section.settings.collection] -%}
+{%- assign product_limit = section.settings.product_count -%}
+<div class="product-slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading featured-prod-heading">
+          <h2>{{ section.settings.section_heading }}</h2>
+          <p>{{ section.settings.section_sub_heading }}</p>
+        </div>
+      </div>
+      
+      <div class="col-md-12">
+        
+        
+        
+        
+        <div class="owl-carousel owl-theme product-slide">
+          {% for product in collection.products limit: product_limit %}
+          	{% render 'product-item' product: product, collection: collection %}
+          {% endfor %}
+          
+      </div>
+        <div class="bestSellerBtn">
+          {%- if section.settings.btn_url != blank -%}
+          <a href="{{ section.settings.btn_url }}" class="btn btn-theme bestSeller">{{ section.settings.btn_text }}</a>
+          {%- endif -%}
+        </div>
+     </div>
+    </div>
+  </div>
+</div>
+<style>
+  .product-slider{
+    padding:75px 0px;
+  }
+  .featured-prod-heading h2{
+    margin:0px !important;
+    font-size:35px !important;
+    line-height: 46px !important;
+  }
+  .featured-prod-heading p{
+    font-family:'futura-pt';
+    font-size: 22px;
+    line-height:30px;
+    color: #666666;
+
+  }
+  .product-slider .owl-item.active {
+    background: #fcfaf8;
+    padding: 35px 20px;
+    border-radius: 30px;
+    text-align: center;
+}
+/*   .product-slider .item {
+    background: #fff;
+    border-radius: 30px;
+    padding: 20px 15px;
+} */
+  .product-slider .owl-carousel.owl-theme.owl-loaded.owl-drag {
+    margin: 80px 0px;
+}
+  .product-slider .owl-theme .owl-dots .owl-dot span{
+    width: auto;
+    height: 12px;
+    border-radius:0px;
+    margin:0;
+  }
+
+  .product-slider .owl-theme .owl-dots  {
+    display:flex;
+    margin-top:50px;
+  }
+  
+  .product-slider .owl-theme .owl-dots .owl-dot{
+    width:100%;
+  }
+  .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span{
+    background: #DFAC3F;
+  }
+  .owl-theme .owl-nav {
+    margin-top: 10px;
+    position: absolute;
+    top: 45%;
+    width: 100%;
+}
+  button.owl-prev {
+    position: absolute;
+    left: -70px;
+}
+  button.owl-next, button.owl-prev {
+    position: absolute;
+    right: -70px;
+    width: 56px;
+    height: 56px;
+    background: #dc9e36 !important;
+    border-radius: 50% !important;
+}
+  .owl-nav button span{
+    font-size: 50px;
+    line-height: 25px;
+    color: #fff;
+  }
+  .owl-theme .owl-nav .disabled{
+  	display:none;
+  }
+  .item a{
+    text-decoration:none;
+  }
+  .item h4{
+    font-size:16px;
+    line-height:22px;
+    margin:0;
+    color:#333;
+    font-family: 'futura-pt';
+    font-weight:500;
+    margin-top: 20px;
+  }
+  .item p{
+    color:#7e7e7e;
+    font-size:14px;
+    line-height:20px;
+    margin:0;
+    font-family: 'futura-pt';
+    font-weight:500;
+  }
+  .bestSellerBtn{
+    text-align:center;
+  }
+  .bestSellerBtn .bestSeller{
+        color: #fff;
+    background: #dfac3f;
+    font-family:'futura-pt';
+    font-weight: 500;
+    font-size:20px;
+    line-height:26px;
+  }
+  .bestSellerBtn .bestSeller:hover{
+    border: 1px solid #dfac3f;
+    background:transparent;
+    color:#dfac3f !important;
+  }
+  
+</style>
+<script>
+  $(document).ready(function() {
+    $('.product-slide').owlCarousel({
+      loop: true,
+      center: false,
+      margin: 10,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          stagePadding: 30,
+      loop: false,
+      nav: true,
+      margin: 20,
+        },
+        600: {
+          items: 2,
+          stagePadding: 30,
+      loop: false,
+      nav: true,
+      margin: 20
+        },
+        1000: {
+          items: 3,
+          nav: true,
+          loop: false,
+          margin: 20
+        }
+      }
+    })
+  })
+</script>

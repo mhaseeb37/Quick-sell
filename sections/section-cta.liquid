@@ -1,0 +1,37 @@
+{% render 'section-CTA' %}
+{% schema %}
+  {
+    "name": "CTA with Button",
+    "settings": [
+					{
+						"type":"textarea",
+						"id": "cta_heading",
+						"label":"CTA Heading",
+						"default":"CTA Heading"
+					},
+					{
+						"type": "url",
+						"id": "btn_url",
+						"label":"Button Url"
+					},
+					{
+						"type": "text",
+						"id":"btn_txt",
+						"label":"Button Text",
+						"default": "Button Text"
+					}
+				],
+	"presets":[
+                  {
+					 "category":"cta",
+					 "name": "CTA with Button"
+                  }
+      		  ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

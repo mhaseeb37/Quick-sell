@@ -1,0 +1,134 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings section-imageText-slider.liquid
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="imagetext-slider">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading image-text-heading">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="owl-carousel owl-theme testimonial-slide">
+          {% for block in section.blocks%}
+          <div class="item">
+            <div class="row">
+              <div class="col-md-6 textSide">
+                <h4>{{ block.settings.section_sub_heading}}</h4>
+                <p>{{ block.settings.section_descp }}</p>
+                <div class="authorName">
+                  <p>— {{ block.settings.author_name}}</p>
+                </div>
+              </div>
+              <div class="col-md-6 imgSide">
+                <div class="{%- if block.settings.radius_img == 'TL' -%} top-left {%- elsif block.settings.radius_img == 'TR' -%} top-right {%- elsif block.settings.radius_img == 'BL' -%} bottom-left {%- elsif block.settings.radius_img == 'BR' -%} bottom-right {%- elsif block.settings.radius_img == 'AS' -%} all-side {%- endif -%}">
+                <img src="{{ block.settings.section_image | img_url: '1024x' }}">
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+         
+      </div>
+        
+     </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .imagetext-slider{
+   	padding:75px 0px; 
+  }
+  .imagetext-slider .image-text-heading h2{
+    font-size:47px;
+    line-height:62px;
+  }
+  .imagetext-slider .testimonial-slide h4{
+    font-family:'futura-pt';
+    font-size:35px;
+    line-height:46px;
+    color: #455868;
+    margin-bottom:50px
+
+  }
+  .imagetext-slider .testimonial-slide .row{
+    align-items:center;
+  }
+  .imagetext-slider .testimonial-slide p{
+    font-family: 'Adobe Garamond Pro';
+    font-size: 20px;
+    line-height: 24px;
+    max-width:540px;
+    margin-bottom:30px;
+    color: #455868;
+  }
+  .imagetext-slider .testimonial-slide .authorName p{
+    color: #455868;
+    font-size:17px;
+    line-height:22px;
+    font-weight:500;
+    font-family:'futura-pt';
+
+  }
+  .imagetext-slider .owl-theme .owl-dots .owl-dot span{
+    width: auto;
+    height: 12px;
+    border-radius:0px;
+    margin:0;
+  }
+  .imagetext-slider .owl-theme .owl-dots .owl-dot{
+    display:flex;
+  }
+  .imagetext-slider .owl-theme .owl-dots .owl-dot{
+    width:100%;
+    display:inline-block;
+  }
+  .imagetext-slider .owl-theme .owl-dots{
+    text-align:left
+  }
+  .imagetext-slider .testimonial-slide{
+    position:relative;
+    
+  }
+  .imagetext-slider .owl-dots {
+    position: absolute;
+    bottom: 10px;
+        display: flex;
+    width: 46%;
+}
+  
+  
+</style>
+<script>
+  $(document).ready(function() {
+    $('.testimonial-slide').owlCarousel({
+      loop: true,
+      margin: 10,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          nav: false
+        },
+        600: {
+          items: 1,
+          nav: false
+        },
+        1000: {
+          items: 1,
+          nav: true,
+          loop: false,
+          margin: 20
+        }
+      }
+    })
+  })
+</script>

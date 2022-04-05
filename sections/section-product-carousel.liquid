@@ -1,0 +1,48 @@
+{% render 'section-products-carousel' %}
+{% schema %}
+  {
+    "name": "Products Carousel",
+    "settings": [
+					{
+						"type" : "textarea",
+						"id" : "section_heading",
+						"label" : "Heading",
+						"default" : "Heading"
+					},
+					{
+						"type" : "textarea",
+						"id" : "section_sub_heading",
+						"label" : "Sub Heading",
+						"default" : "Sub Heading"
+					},
+					{
+						"type" : "collection",
+						"id" : "collection",
+						"label" : "collection"
+					},
+					{
+						"type" : "url",
+						"id" : "btn_url",
+						"label" : "Button Url"
+					},
+					{
+						"type" : "text",
+						"id" : "btn_text",
+						"label" : "Button text",
+						"default": "view best sellers"
+					}
+				],
+	"presets": [
+					{
+						"category" : "image",
+						"name" : "Products Carousel"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

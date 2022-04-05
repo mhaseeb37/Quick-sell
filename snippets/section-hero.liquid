@@ -1,0 +1,54 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings of section-hero
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="section-hero" {% if section.settings.enable_bg %} id="inner-Banner" style="background:url({{ section.settings.background_image | img_url: '1296x' }}) no-repeat; background-size: cover; background-position:center center;"{% endif %}>
+  <div class="container">
+  <div class="row">
+    <div class="col-md-5">
+        <div class="txtSide">
+            <h1>{{ section.settings.banner_heading_text }}</h1>
+            <p>{{ section.settings.banner_paragraph_text }}</p>
+          	{%- if section.settings.banner_button_link != blank -%}
+            <a href="{{ section.settings.banner_button_link }}" class="btn btn-theme btn-hero">{{ section.settings.banner_button_text }}</a>
+          	{%- endif -%}
+        </div>
+    </div>
+    <div class="col-md-7">
+        <div class="mediaSide">
+          {%- if section.settings.media_type == 'image' -%}
+          	{%- if section.settings.banner_image != blank -%}
+            <div class="{%- if section.settings.image_radius == 'TL' -%} top-left {%- elsif section.settings.image_radius == 'TR' -%} top-right {%- elsif section.settings.image_radius == 'BL' -%} bottom-left {%- elsif section.settings.image_radius == 'BR' -%} bottom-right {%- elsif section.settings.image_radius == 'AS' -%} all-sides {%- elsif section.settings.image_radius == 'NR' -%} no-radius {%- endif -%}">
+                <img src="{{ section.settings.banner_image | img_url: '1296x' }}" data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" alt="{{ var_image_alt }}">
+                          
+            </div>
+          {%- endif -%}
+          {%- elsif section.settings.media_type == 'video' -%}
+            <div class="video">
+                <iframe src="{{ section.settings.video_link }}" width="100%" height="450" style="border:none;">
+            </div>
+          {%- elsif section.settings.media_type == 'svg' -%}
+            <div class="svg">
+                {{ section.settings.svg_code }}
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+  <style>
+    .mediaSide{
+      text-align:right;
+    }
+    .btn-hero:hover{
+      border:1px solid #455868;
+      background: transparent;
+      color:#455868 !important;
+    }
+  </style>

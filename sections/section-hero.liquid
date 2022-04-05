@@ -1,0 +1,117 @@
+{% render 'section-hero' %}
+{% schema %}
+  {
+    "name": "Hero Section",
+    "settings": [
+                  {
+                      "type": "textarea",
+                      "id": "banner_heading_text",
+                      "label": "Heading text"
+                  },
+				  {
+                    "type": "textarea",
+                    "id": "banner_paragraph_text",
+                    "label": "Paragraph text"
+                  },
+				  {
+                    "type": "text",
+                    "id": "banner_button_text",
+                    "label": "Button text",
+					"default": "Button Text"
+                  },
+				  {
+                    "type": "url",
+                    "id": "banner_button_link",
+                    "label": "Button link"
+                  },
+                  {
+                    "type": "select",
+                    "id": "media_type",
+                    "label": "Select Media option",
+                    "default": "image",
+                    "options": [
+                        {
+                            "value": "image",
+                            "label": "Image"
+                        },
+                        {
+                            "value": "video",
+                            "label": "Video"
+                        },
+                        {
+                            "value": "svg",
+                            "label": "SVG"
+                        }
+                    ]
+                  },
+                  {
+                    "type": "checkbox",
+                    "id": "enable_bg",
+                    "label": "Enable Background Image"
+                  },
+                  {
+                    "type": "image_picker",
+                    "id": "background_image",
+                    "label": "Select Background Image"
+                  },
+                  {
+                    "type": "image_picker",
+                    "id": "banner_image",
+                    "label": "Select Image"
+                  },
+					{
+						"type": "select",
+                        "id": "image_radius",
+                        "label": "Select Image Radius",
+                        "options": [
+                            {
+                                "value": "TL",
+                                "label": "Top Left"
+                            },
+                            {
+                                "value": "TR",
+                                "label": "Top Right"
+                            },
+                            {
+                                "value": "BL",
+                                "label": "Bottom Left"
+                            },
+                            {
+                                "value": "BR",
+                                "label": "Bottom Right"
+                            },
+                            {
+                                "value": "AS",
+                                "label": "All Sides"
+                            },
+                            {
+                                "value": "NR",
+                                "label": "No Radius"
+                            }
+                        ]
+					},
+				  {
+                    "type": "text",
+                    "id": "video_link",
+                    "label": "Video link"
+                  },
+				  {
+                    "type": "textarea",
+                    "id": "svg_code",
+                    "label": "SVG"
+                  }
+				],
+				"presets": [
+                              {
+                                  "category": "image",
+                                  "name": "Banner Hero"
+                              }
+                          ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

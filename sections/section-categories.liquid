@@ -1,0 +1,62 @@
+{% render 'section-categories' %}
+{% schema %}
+  {
+    "name": "Shop by Category",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Section Name",
+						"default": "Heading"
+					}
+					
+				],
+	"blocks" : [
+				{
+					"type": "collection",
+					"name": "Collection Boxes",
+					"settings": [
+									{
+                                        "type": "textarea",
+                                        "id": "collection_name",
+                                        "label": "Collection Name",
+                                        "default": "Collection Name"
+                                    },
+                                    {
+                                        "type": "textarea",
+                                        "id": "collection_description",
+                                        "label": "Description",
+                                        "default": "Description"
+                                    },
+                                    {
+                                        "type": "url",
+                                        "id": "collection_link",
+                                        "label": "Collection Link"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "id": "collection_text",
+                                        "label": "Collection button Text"
+                                    },
+                                    {
+                                        "type": "image_picker",
+                                        "id": "collection_image",
+                                        "label": "Collection Image"
+                                    }
+								]
+				}
+				],
+	"presets" : [
+					{
+						"category" : "collection",
+						"name" : "Collection Box"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

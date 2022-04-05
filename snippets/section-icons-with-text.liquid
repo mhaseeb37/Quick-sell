@@ -1,0 +1,41 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings for section-icons-with-text
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+<div class="container iconBoxes">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="icon-box">
+          <img src="{{ section.settings.icon1_img | img_url: '1296x' }}" data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" alt="{{ var_image_alt }}">
+          <p class="icon-text">{{ section.settings.icon1_text }}</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-box">
+          <img src="{{ section.settings.icon2_img | img_url: '1296x' }}" data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" alt="{{ var_image_alt }}">
+          <p class="icon-text">{{ section.settings.icon2_text }}</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-box">
+          <img src="{{ section.settings.icon3_img | img_url: '1296x' }}" data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" alt="{{ var_image_alt }}">
+          <p class="icon-text">{{ section.settings.icon3_text }}</p>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="icon-box">
+          <img src="{{ section.settings.icon4_img | img_url: '1296x' }}" data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" alt="{{ var_image_alt }}">
+          <p class="icon-text">{{ section.settings.icon4_text }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .icon-text{
+    font-family:'futura-pt;'
+  }
+</style>

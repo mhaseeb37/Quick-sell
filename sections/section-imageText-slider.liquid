@@ -1,0 +1,86 @@
+{% render 'section-imageText-slider'%}
+{% schema %}
+  {
+    "name": "Image Text Slider",
+    "settings": [
+					{
+						"type": "textarea",
+						"id" : "section_heading",
+						"label" : "Section Heading",
+						"default" : "Section Heading"
+					}
+					
+				],
+	"blocks" : [
+					{
+						"type":"collection",
+						"name":"Text with Image Slider",
+						"settings": [
+										{
+                                            "type": "textarea",
+                                            "id" : "section_sub_heading",
+                                            "label" : "Section Heading",
+                                            "default" : "Section Heading"
+                                        },
+										{
+                                            "type": "textarea",
+                                            "id" : "section_descp",
+                                            "label" : "Section Description",
+                                            "default" : "Section Description"
+                                        },
+                                        {
+                                            "type": "image_picker",
+                                            "id": "section_image",
+                                            "label": "Image"
+                                        },
+                                        {
+                                            "type": "select",
+                                            "id": "radius_img",
+                                            "label": "Select Image Radius",
+											"default" : "AS",
+                                            "options": [
+                                                {
+                                                    "value": "TL",
+                                                    "label": "Top Left"
+                                                },
+                                                {
+                                                    "value": "TR",
+                                                    "label": "Top Right"
+                                                },
+                                                {
+                                                    "value": "BL",
+                                                    "label": "Bottom Left"
+                                                },
+                                                {
+                                                    "value": "BR",
+                                                    "label": "Bottom Right"
+                                                },
+                                                {
+                                                    "value": "AS",
+                                                    "label": "All Side"
+                                                }
+                                            ]
+                                        },
+										{
+											"type": "textarea",
+											"id" : "author_name",
+											"label" : "Author Name",
+											"default": "Author Name"
+										}
+									]
+					}
+				],
+	"presets" : [
+					{
+						"category" : "image",
+						"name" : "Testimonial Slider"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

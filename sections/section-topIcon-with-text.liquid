@@ -1,0 +1,52 @@
+{% render 'section-topIcon-with-text' %}
+{% schema %}
+  {
+    "name": "Top Icon With Text",
+    "settings": [
+					{
+                      "type": "textarea",
+                      "id": "section_heading",
+                      "label": "Heading",
+					  "default": "Heading"
+                	}
+				],
+	"blocks":[
+				{
+					"type": "collection",
+					"name": "Icon Box",
+					"settings":[
+									{
+                                        "type": "image_picker",
+                                        "id": "icon_image",
+                                        "label": "Select Icon"
+                                    },
+									{
+                                        "type": "textarea",
+                                        "id": "icon_heading",
+                                        "label": "Icon Heading",
+                                        "default": "Icon Heading"
+                                    },
+                                    {
+                                        "type": "textarea",
+                                        "id": "icon_description",
+                                        "label": "Description",
+                                        "default": "Description"
+                                    }
+									
+								]
+				}
+			 ],
+	"presets":[
+				{
+					"category":"image",
+					"name" : "Top Icon With Text"
+				}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

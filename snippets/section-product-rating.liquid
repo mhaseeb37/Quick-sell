@@ -1,0 +1,145 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings section-product-rating
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+<div class="feat-prod desktop-v">
+  <div class="container">
+    <div class="feat-bg">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="text-heading section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+          </div>
+          <div class="rating">
+            <img src="{{ section.settings.rating_image | img_url: '1024x' }}">
+            <p>{{ section.settings.testimonial_descp }}</p>
+            <p class="author-name">— {{ section.settings.author_name}}</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="prod-build">
+            {%- assign product = section.settings.feat_product  -%}
+            {% render 'product-item' product: product, collection: collection %}
+            <div class="build-btn">
+              {%- if section.settings.build_btn_url != blank -%}
+              <a href="{{ section.settings.build_btn_url }}" class="btn btn-theme">{{ section.settings.build_btn_text }} <i class="icon" aria-hidden="true"><svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.7071 8.20711C26.0976 7.81658 26.0976 7.18342 25.7071 6.79289L19.3431 0.428932C18.9526 0.0384078 18.3195 0.0384078 17.9289 0.428932C17.5384 0.819457 17.5384 1.45262 17.9289 1.84315L23.5858 7.5L17.9289 13.1569C17.5384 13.5474 17.5384 14.1805 17.9289 14.5711C18.3195 14.9616 18.9526 14.9616 19.3431 14.5711L25.7071 8.20711ZM0 8.5H25V6.5H0V8.5Z" fill="white"/>
+&nbsp;</svg>
+</i></a>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="feat-prod mobile-v">
+  <div class="container">
+    <div class="feat-bg">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text-heading section-heading">
+            <h2>{{ section.settings.section_heading }}</h2>
+          </div>
+          <div class="prod-build">
+            {%- assign product = section.settings.feat_product  -%}
+            {% render 'product-item' product: product, collection: collection %}
+            <div class="build-btn">
+              {%- if section.settings.build_btn_url != blank -%}
+              <a href="{{ section.settings.build_btn_url }}" class="btn btn-theme">{{ section.settings.build_btn_text }} <i class="icon" aria-hidden="true"><svg width="26" height="15" viewBox="0 0 26 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.7071 8.20711C26.0976 7.81658 26.0976 7.18342 25.7071 6.79289L19.3431 0.428932C18.9526 0.0384078 18.3195 0.0384078 17.9289 0.428932C17.5384 0.819457 17.5384 1.45262 17.9289 1.84315L23.5858 7.5L17.9289 13.1569C17.5384 13.5474 17.5384 14.1805 17.9289 14.5711C18.3195 14.9616 18.9526 14.9616 19.3431 14.5711L25.7071 8.20711ZM0 8.5H25V6.5H0V8.5Z" fill="white"/>
+&nbsp;</svg>
+</i></a>
+              {%- endif -%}
+            </div>
+          </div>
+          <div class="rating">
+            <img src="{{ section.settings.rating_image | img_url: '1024x' }}">
+            <p>{{ section.settings.testimonial_descp }}</p>
+            <p class="author-name">— {{ section.settings.author_name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .feat-prod{
+    padding:75px 0px;
+  }
+  .feat-bg .row{
+    align-items: flex-end;
+  }
+  .feat-bg{
+    background: #45586808;
+    border-radius: 30px;
+    padding: 50px 80px;
+    
+  }
+  .text-heading h2{
+    font-size:45px !important;
+    line-height:60px !important;
+    max-width: 500px;
+  }
+  .prod-build {
+        background: #fff;
+    text-align: center;
+    padding: 20px 15px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 6px 0px #0000001a;
+}
+  .prod-build img{
+    width: 250px;
+  }
+  .prod-build a {
+    text-decoration: none;
+}
+  .prod-build h4 {
+    font-size: 16px;
+    line-height: 22px;
+    margin: 0;
+    color: #333;
+    font-family: 'futura-pt';
+    font-weight: 500;
+}
+  .prod-build p {
+    color: #7e7e7e;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+    font-family: 'futura-pt';
+    font-weight: 500;
+}
+  .rating{
+    margin-top:100px;
+  }
+  .rating img{
+    margin-bottom:15px;
+  }
+  .rating p {
+    font-family: 'Adobe Garamond Pro';
+    font-size: 22px;
+    line-height: 26px;
+    max-width: 500px;
+    color: #455868;
+}
+  .build-btn .btn{
+        font-size: 16px;
+    padding: 5px 15px;
+    margin-top: 15px
+  }
+  .build-btn .btn:hover{
+    background:transparent;
+    border:1px solid;
+    color: #455868 !important;
+  }
+  .radial.radial--circle {
+    margin-right: 0;
+  }
+  
+  </style>

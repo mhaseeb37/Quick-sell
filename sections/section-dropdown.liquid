@@ -1,0 +1,167 @@
+<div class="sectionDropdown">
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="section-Heading">
+                <h2>{{ section.settings.section_heading }}</h2>
+                <h4>{{ section.settings.section_sub_heading }}</h4>
+            </div>
+          <div class="dropdownSection">
+                <select class="dropDownSelect">
+                  {% for block in section.blocks%}
+                    <option value="{{block.settings.quick_link}}">{{block.settings.url_title}}</option>
+                  {% endfor %}
+                </select>
+              <div class="goBtn">
+                <a id="GOBTN" class="btn btnGo themeBtn button button--primary">Go</a>
+            </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Dropdown Section",
+    "settings": [
+		
+              {
+                "type": "image_picker",
+                "id": "background_image",
+                "label": "Select Background Image"
+              },
+			  {
+                "type": "textarea",
+                "id": "section_heading",
+                "label": "Heading",
+                "default": "Heading"
+              },
+			  {
+                "type": "text",
+                "id": "font_heading",
+                "label": "Heading Font",
+                "default": "32"
+              },
+			  {
+                "type": "color",
+                "id": "color_heading",
+                "label": "Heading color",
+                "default": "#FFFFFF"
+              },
+			  {
+                "type": "textarea",
+                "id": "section_sub_heading",
+                "label": "Sub Heading",
+                "default": "Sub Heading"
+              },
+			  {
+                "type": "text",
+                "id": "font_sub_heading",
+                "label": "Heading Font",
+                "default": "26"
+              },
+			  {
+                "type": "color",
+                "id": "color_sub_heading",
+                "label": "Sub Heading color",
+                "default": "#FFFFFF"
+              },
+              {
+                "type": "select",
+                "id": "section_alignment",
+                "label": "Select Text alignment",
+                "default": "center",
+                "options": [
+                              {
+                                "value": "left",
+                                "label": "Left"
+                              },
+                              {
+                                "value": "center",
+                                "label": "Center"
+                              },
+                              {
+                                "value": "right",
+                                "label": "Right"
+                              }
+                ]
+              }
+		
+	],
+	"blocks":[
+				{
+					"type":"collection",
+					"name":"Quick link",
+					"settings":[
+						{
+							"type": "url",
+                            "id": "quick_link",
+                            "label": "Enter URL"
+						},
+                        {
+                          "type": "text",
+                          "id": "url_title",
+                          "label": "Title",
+                          "default": "Title"
+                        }		
+					]
+				}
+	],
+    "presets": [
+        {
+          "category": "Dropdown",
+          "name": "Augenmanufaktur Dropdown Section"
+        }
+    ]
+  }
+{% endschema %}
+
+<style>
+  .sectionDropdown{
+    background: url({{ section.settings.background_image | img_url: '1296x' }}) no-repeat;
+    background-position: center center;
+    background-size: cover;
+    padding:200px 0px;
+    text-align:{{section.settings.section_alignment}};
+  }
+  .section-Heading h2, .section-Heading h4{
+    margin: 0 0 17.5px;
+  }
+  .dropDownSelect:focus-visible {
+    outline: 0;
+    outline-offset: 0;
+    box-shadow: none;
+}
+  .section-Heading h2{
+    font-size:{{section.settings.font_heading}}px;
+    color:{{section.settings.color_heading}};
+  }
+  .dropDownSelect{
+    width: 300px;
+  	height: 4.8rem;
+    padding: 0px 10px;
+  }
+  .section-Heading h4{
+	font-size:{{section.settings.font_sub_heading}}px;
+    color:{{section.settings.color_sub_heading}};
+  }
+  .goBtn{
+    display:inline-block;
+  }
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+  var $ = jQuery;
+  $('.btnGo').click(function() {
+    var selected = $('.dropDownSelect option:selected').val();
+    //alert(" If you want text ==>"  + selected);
+    //$("#GOBTN").attr("href","selected.html()");
+    window.open(selected, '_blank'); 
+    
+    //$("a#GOBTN").attr("href", "http://www.myfancynewurl.com");
+    
+    
+    
+});
+</script>

@@ -1,0 +1,52 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings of section-two-col-text.
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="two-Col-text">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 spaceBtm">
+        <div class="text-side">
+          {%- if section.settings.section_heading_1 != blank -%}
+          <h2>{{ section.settings.section_heading_1 }}</h2>
+          {%- endif -%}
+          {%- if section.settings.section_sub_heading_1 != blank -%}
+          <h3>{{ section.settings.section_sub_heading_1 }}</h3>
+          {%- endif -%}
+          <p>{{ section.settings.section_paragraph_1 }}</p>
+          {%- if section.settings.button_link_1 != blank -%}
+          <a href="{{ section.settings.button_link_1 }}" class="btn btn-theme">{{ section.settings.button_text_1 }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-side">
+          {%- if section.settings.section_heading_2 != blank -%}
+          <h2>{{ section.settings.section_heading_2 }}</h2>
+          {%- endif -%}
+          {%- if section.settings.section_sub_heading_2 != blank -%}
+          <h3>{{ section.settings.section_sub_heading_2 }}</h3>
+          {%- endif -%}
+          <p>{{ section.settings.section_paragraph_2 }}</p>
+          {%- if section.settings.button_link_2 != blank -%}
+          <a href="{{ section.settings.button_link_2 }}" class="btn btn-theme">{{ section.settings.button_text_2 }}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .two-Col-text{
+    padding: 75px 0px;
+  }
+  .imgTxt .text-side .btn:hover{
+    border-color:#DC9E36;
+    color:#DC9E36 !important;
+  }
+</style>

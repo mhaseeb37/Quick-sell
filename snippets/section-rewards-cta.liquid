@@ -1,0 +1,66 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings section-rewards-cta
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+<div class="rewars-cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+
+      </div>
+      <div class="col-md-6">
+        <div class="rewards-col">
+          <div class="section-heading reward-heading">
+              <h2>{{ section.settings.section_heading }}</h2>
+          </div>
+          <p>{{ section.settings.reward_descp }}</p>
+          <div class="ctaBtn">
+            {%- if section.settings.reward_btn_url != blank -%}
+            <a href="{{ section.settings.reward_btn_url }}" class="btn btn-theme">{{ section.settings.reward_btn_text }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .rewars-cta {
+    padding: 100px 0px;
+    background: #455868;
+}
+  .section-heading.reward-heading h2 {
+    font-size: 29px;
+    line-height: 38px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+  .rewards-col {
+    text-align: center;
+}
+  .rewards-col p {
+    font-family: 'Adobe Garamond Pro';
+    font-size: 23px;
+    line-height: 28px;
+    color:#fff;
+    margin-bottom: 30px;
+}
+  .ctaBtn .btn {
+    font-size: 22px;
+    line-height: 29px;
+    background: #DC9E36;
+
+}
+  .ctaBtn .btn:hover {
+    background: #fff !important;
+    color: #DC9E36 !important;
+}
+</style>

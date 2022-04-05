@@ -1,0 +1,100 @@
+{% render 'section-image-with-text' %}
+{% schema %}
+  {
+    "name": "Image With Text",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Heading",
+						"default": "Heading"
+					},
+					{
+						"type": "textarea",
+                        "id": "section_sub_heading",
+                        "label": "Sub Heading",
+						"default": "Sub Heading"
+					},
+					{
+						"type": "textarea",
+                        "id": "section_paragraph",
+                        "label": "paragraph",
+						"default": "Paragraph"
+					},
+					{
+						"type": "image_picker",
+                        "id": "section_image",
+                        "label": "Select Image"
+					},
+					{
+						"type": "select",
+                        "id": "image_alignment",
+                        "label": "Select Image Position",
+                        "default": "right",
+                        "options": [
+                            {
+                                "value": "left",
+                                "label": "Left"
+                            },
+                            {
+                                "value": "right",
+                                "label": "Right"
+                            }
+                        ]
+					},
+					{
+						"type": "select",
+                        "id": "image_radius",
+                        "label": "Select Image Radius",
+                        "options": [
+                            {
+                                "value": "TL",
+                                "label": "Top Left"
+                            },
+                            {
+                                "value": "TR",
+                                "label": "Top Right"
+                            },
+                            {
+                                "value": "BL",
+                                "label": "Bottom Left"
+                            },
+                            {
+                                "value": "BR",
+                                "label": "Bottom Right"
+                            },
+                            {
+                            "value": "AS",
+                            "label": "All Side"
+                            },
+                            {
+                            "value": "NR",
+                            "label": "No Radius"
+                            }
+                        ]
+					},
+					{
+						"type": "url",
+                        "id": "button_link",
+                        "label": "Button Link"
+					},
+					{
+						"type": "text",
+                        "id": "button_text",
+                        "label": "Button Text"
+					}
+				],
+				"presets": [
+                              {
+                                  "category": "image",
+                                  "name": "Image with Text"
+                              }
+                          ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

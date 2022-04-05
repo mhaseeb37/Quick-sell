@@ -1,0 +1,143 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Settings for section Categories
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+
+<div class="shopBy">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <h2>{{ section.settings.section_heading }}</h2>
+        </div>
+      </div>
+      
+      <div class="col-md-12">
+       
+        <div class="owl-carousel owl-theme collection-slide">
+          {% for block in section.blocks%}
+          <div class="item">
+             <div class="catbox" style="background: url({{ block.settings.collection_image | img_url: '1024x' }}) no-repeat;">
+          <h3>{{ block.settings.collection_name }}</h3>
+          <p>{{ block.settings.collection_description }}</p>
+          {%- if block.settings.collection_link != blank -%}
+            <div class="catBtn">
+              <a href="{{ block.settings.collection_link }}" class="btn btn-theme">{{ block.settings.collection_text }}</a>
+            </div>
+          {%- endif -%}
+        </div>
+          </div>
+          {% endfor %}
+         
+      </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<style>
+  .shopBy{
+    padding:75px 0px;
+  }
+  .section-heading h2{
+    font-family: 'futura-pt';
+    font-size: 40px;
+    line-height: 54px;
+    color: #455868;
+    font-weight: 500;
+    margin-bottom:50px;
+  }
+  .catbox{
+	text-align: center;
+    padding: 100px 65px 50px;
+    background-position: center !important;
+    background-size: cover !important;
+    min-height: 300px;
+    position:relative;
+    border-radius: 20px;
+}
+  .catbox:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #0000003d;
+    border-radius: 20px;
+}
+  .catbox h3{
+    font-family: 'futura-pt';
+    font-size: 18px;
+    line-height: 21px;
+    color: #fff;
+    font-weight: 500;
+	position: relative;
+    z-index: 9;
+  }
+  .catbox p{
+    font-family: adobe-garamond-pro;
+    font-size: 16px;
+    line-height: 20px;
+    color:#fff;
+    position: relative;
+    z-index: 9;
+  }
+  .catbox .catBtn{
+    margin-top:30px;
+  }
+  .catbox .catBtn .btn{
+    font-family: 'futura-pt';
+    background:#fff;
+    color:#455868 !important;
+    font-size:18px;
+    line-height: 24px;
+  }
+  .catbox .catBtn .btn:hover{
+    background: #455868 !important;
+	color: #fff !important;
+  }
+  
+  
+</style>
+<script>
+  $(document).ready(function() {
+    $('.collection-slide').owlCarousel({
+      loop: true,
+      margin: 10,
+      responsiveClass: true,
+      responsive: {
+        0: {
+          items: 1,
+          stagePadding: 30,
+          center: false,
+      loop: false,
+      nav: true,
+          dots: false,
+      margin: 20,
+        },
+        600: {
+          items: 2,
+         center: false,
+          stagePadding: 30,
+      loop: false,
+      nav: true,
+          dots: false,
+      margin: 20
+        },
+        1000: {
+          items: 3,
+          nav: true,
+          loop: false,
+          margin: 20
+        }
+      }
+    })
+  })
+</script>

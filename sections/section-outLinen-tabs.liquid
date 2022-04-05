@@ -1,0 +1,67 @@
+{% render 'section-outLinen-tabs' %}
+{% schema %}
+  {
+    "name": "Our Linen Tabs",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Section Name",
+						"default": "Heading"
+					}
+				],
+	"blocks" : [
+				{
+					"type": "collection",
+					"name": "Tab Boxes",
+					"settings": [
+                                    {
+                                        "type": "textarea",
+                                        "id": "tab_heading",
+                                        "label": "Tab Heading",
+                                        "default": "Tab Heading"
+                                    },
+									{
+                                        "type": "image_picker",
+                                        "id": "tab_image",
+                                        "label": "Tab Image"
+                                    },
+									{
+                                        "type": "textarea",
+                                        "id": "tab_sub_heading",
+                                        "label": "Tab Sub Heading",
+                                        "default": "Tab Sub Heading"
+                                    },
+                                    {
+                                        "type": "textarea",
+                                        "id": "tab_description",
+                                        "label": "Tab Description",
+                                        "default": "Tab Description"
+                                    },
+                                    {
+                                        "type": "url",
+                                        "id": "button_link",
+                                        "label": "Button Link"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "id": "button_text",
+                                        "label": "Button Text"
+                                    }
+								]
+				}
+				],
+	"presets" : [
+					{
+						"category" : "image",
+						"name" : "Our Linen Tabs"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

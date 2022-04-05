@@ -1,0 +1,116 @@
+{% comment %}
+/**
+* ----------------------------------------------------------------------------------------------
+* Product swatches
+*
+* Color swatches and radials for product blocks filtered by active variants.
+* ----------------------------------------------------------------------------------------------
+*/
+{% endcomment %}
+
+{% capture product_swatches %}
+  <div class="product--swatches">
+    {%- assign color_label = 'color,colour,couleur,colore,farbe,색,色,färg,farve' | split: ',' -%}
+    {%- assign processed_colors = "" -%}
+
+    {% comment %}
+    /* Filter by active variants ---------------------------------------------------------------------------------------------- */
+    {% endcomment %}
+    {%- for option in product.options_with_values -%}
+      {%- assign downcased_option = option.name | downcase -%}
+      {%- if color_label contains downcased_option -%}
+        {%- assign variant_option = 'option' | append: forloop.index -%}
+        {%- for variant in product.variants -%}
+          {%- if variant.metafields.arena.active == "true" -%}
+
+            {%- assign downcased_value = variant[variant_option] | downcase -%}
+            {% assign adjusted_value = downcased_value | append: "**" %}
+    
+            {%- unless processed_colors contains adjusted_value -%}                                            
+
+              {% render 'option-radial' 
+                productItem: product,
+                variant: variant,
+                option: option,
+                default_option: false,
+                value: variant[variant_option],
+                radial_type: "radial--circle",
+                enable_label: false,
+                enable_tooltip: true,
+    			enable_variant_link: true
+    
+              %}
+              {%- assign processed_colors = processed_colors | append: "," | append: downcased_value | append: "**"  -%}
+            {%- endunless -%}
+    
+          {%- endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+{% endcapture %}
+
+{% comment %}
+  /**
+  * ----------------------------------------------------------------------------------------------
+  * Product price 
+  *
+  * Calculate the lowest price among active variants
+  * ----------------------------------------------------------------------------------------------
+  */
+{% endcomment %}
+
+{% assign lowest_price = 99999999999999 %}
+{% assign lowest_compare_at_price = 99999999999999 %}
+{% assign highest_price = 0 %}
+{% assign highest_compare_at_price = 0 %}
+
+{% if product.price_varies %}
+{% for variant in product.variants %}
+{% if variant.metafields.arena.active == "true" %}
+{% if variant.price != 0 and variant.price < lowest_price %}
+{% assign lowest_price = variant.price %}
+{% endif %}
+{% if variant.compare_at_price < lowest_compare_at_price and variant.compare_at_price > lowest_price %}
+{% assign lowest_compare_at_price = variant.compare_at_price %}
+{% endif %}
+{% if variant.price > highest_price %}
+{% assign highest_price = variant.price %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+{% assign price = product.price %}
+
+{% if lowest_price != 99999999999999 and lowest_price != 0 %}
+{% assign price = lowest_price %}
+{% endif %}
+
+{% if lowest_compare_at_price != 99999999999999 %}
+{% assign compare_at_price = lowest_compare_at_price %}
+{% endif %}
+
+{%- capture product_price -%}
+  <p {% if compare_at_price != nil %}class="sale-pricing"{% endif %}>
+    {% if product.price_varies and lowest_price != highest_price and lowest_price != 0 %}<span class="price-varies">from</span>{% endif %} 
+
+    <span class="original-price">{{ price | money_with_currency }} </span>
+    {% if compare_at_price != nil %}
+    <s>
+      {% if product.price_varies and lowest_price != highest_price and lowest_price != 0 %}from {% endif %} 
+      {{ compare_at_price | money_without_trailing_zeros }}
+    </s>
+    {% endif %}
+  </p>
+{%- endcapture -%}
+
+<div class="item block-product">
+  <a href="{{ product.url | within: collection }}" class="overlay"></a>    
+    <img class="img-explore" src="{{ product.featured_image | img_url: 'master'}}"> 
+    <h4>{{ product.title }}</h4>
+  	{% render 'okendo-reviews-product-rating-summary', product: product %}
+    <p>{{ product_price }}</p>
+    {{ product_swatches }}
+  
+</div>

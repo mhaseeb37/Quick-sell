@@ -1,0 +1,45 @@
+{% render 'section-tabs' %}
+{% schema %}
+  {
+    "name": "Tabs Sections",
+    "settings": [
+					{
+						"type": "textarea",
+                        "id": "section_heading",
+                        "label": "Section Name",
+						"default": "Heading"
+					}
+				],
+	"blocks" : [
+				{
+					"type": "collection",
+					"name": "Tab Boxes",
+					"settings": [
+									{
+                                        "type": "image_picker",
+                                        "id": "logo_image",
+                                        "label": "Logo Image"
+                                    },
+                                    {
+                                        "type": "textarea",
+                                        "id": "logo_description",
+                                        "label": "Description",
+                                        "default": "Description"
+                                    }
+								]
+				}
+				],
+	"presets" : [
+					{
+						"category" : "image",
+						"name" : "Tabs"
+					}
+				]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
